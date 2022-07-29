@@ -19,6 +19,8 @@ class App extends React.Component {
 
     componentDidMount () {
       const {setCurrentUser} = this.props;
+
+
       this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
         if (userAuth){
           const UserRef = await createUserProfileDocument(userAuth);
@@ -59,4 +61,5 @@ const mapDispatchToProps = dispatch => ({
 
 })
   
-export default connect(mapDispatchToProps)(App);
+export default connect(null,mapDispatchToProps)(App);
+
