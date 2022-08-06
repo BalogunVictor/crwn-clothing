@@ -1,10 +1,11 @@
-import {configureStore, applyMiddleware } from '@reduxjs/toolkit'
-import logger from "redux-logger";
+import { configureStore } from '@reduxjs/toolkit'
 import rootReducer from "./root-reducer"; 
 
-const middlewares = [logger];
 
-const store = configureStore ({reducer:rootReducer}, applyMiddleware(...middlewares))
+
+const store = configureStore ({ reducer:rootReducer,
+  middleware:  getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false,}) });
+
 
 
 export default store;
