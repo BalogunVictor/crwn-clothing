@@ -13,6 +13,8 @@ import {selectCurrentUser} from './redux/user/user.selector'
 import CheckoutPage from "./pages/checkout/checkout.component";
 // import { useState, useEffect } from 'react';
 
+import CollectionsOverview from "./components/collection-overview/collections-overview.component";
+import CollectionPage from "./pages/collection/collection.component";
 
 
 class App extends React.Component {
@@ -54,7 +56,10 @@ class App extends React.Component {
       <Header/>
         <Routes>
           <Route path="/" exact element={<HomePage />} />
-          <Route path="/shop" exact element={<ShopPage/>} />
+          <Route path="/shop"  element={<ShopPage/>}>
+          <Route index element={<CollectionsOverview/>} />
+          <Route path=":collectionId" element={<CollectionPage/>} />  
+          </Route>
           <Route path="/checkout" exact element={<CheckoutPage/>} />
           <Route path="/signin" exact element={
              this.props.currentUser ? 
