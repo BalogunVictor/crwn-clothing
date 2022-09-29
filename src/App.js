@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./App.css";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.components";
@@ -15,42 +15,36 @@ import CheckoutPage from "./pages/checkout/checkout.component";
 
 import CollectionsOverview from "./components/collection-overview/collections-overview.component";
 import CollectionPage from "./pages/collection/collection.component";
+import {selectCollectionsForPreview} from './redux/shop/shop.selector';
+import { useEffect } from "react";
 
 
-class App extends React.Component {
+const App = ({ currentUser,setCurrentUser}) => {
 
-  
+ const unsubscribeFromAuth = useRef('');
 
-  unsubscribeFromAuth = null;
-
-    componentDidMount () {
-      // useEffect ( () => { 
-      
-      const {setCurrentUser} = this.props;
+  useEffect(() => {
+    setCurrentUser();
 
 
-      this.unsubscribeFromAuth = auth.onAuthStateChanged (async userAuth => {
-        if (userAuth){
-          const UserRef = await createUserProfileDocument(userAuth);
+    unsubscribeFromAuth.current = auth.onAuthStateChanged (async userAuth => {
+      if (userAuth){
+        const UserRef = await createUserProfileDocument(userAuth);
 
-          UserRef.onSnapshot(snapShot => {
-            setCurrentUser({
-                id: snapShot.id,...snapShot.data()
-              });
+        UserRef.onSnapshot(snapShot => {
+          setCurrentUser({
+              id: snapShot.id,...snapShot.data()
             });
-      
-        }
-        setCurrentUser(userAuth);
-      })
-    }
- 
-      componentWillUnmount(){
-        this.unsubscribeFromAuth (); 
-       
-      }
+          });
     
+      }
+      
+      setCurrentUser(userAuth);   
+    })
+
+  },[setCurrentUser]); 
   
-  render() {
+ 
     return (
       <Router>
       <Header/>
@@ -62,7 +56,7 @@ class App extends React.Component {
           </Route>
           <Route path="/checkout" exact element={<CheckoutPage/>} />
           <Route path="/signin" exact element={
-             this.props.currentUser ? 
+             currentUser ? 
             (<Navigate replace to="/" />) : (<SignInAndSignUpPage/>)
           }
           />
@@ -71,10 +65,11 @@ class App extends React.Component {
   
   );
 }
-}
+
 
 const mapStateToProps = createStructuredSelector({ 
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+  collectionsArray: selectCollectionsForPreview
 })
  
 const mapDispatchToProps = dispatch => ({ 

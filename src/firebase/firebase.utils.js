@@ -10,7 +10,6 @@ const config = {
   messagingSenderId: "768894149226",
   appId: "1:768894149226:web:0e275bf9186e152212a013",
   measurementId: "G-BSGYKXQ1Z2",
-  // apiKey: process.env.API_KEY
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData ) => {
@@ -38,6 +37,18 @@ export const createUserProfileDocument = async (userAuth, additionalData ) => {
 
   return UserRef;
 };
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
+
+  const batch = firestore.batch();
+  objectsToAdd.forEach(obj => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj); 
+  });
+
+  return await batch.commit();
+}
 
 firebase.initializeApp(config)
 
