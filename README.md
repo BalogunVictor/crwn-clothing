@@ -1,6 +1,6 @@
 # royal-clothing
 
-This project is the culmination of a complete training that I carried out on the web application development in React.
+This is a project that I carried out on the web application development in React.
 It is a minimalist e-commerce application. It contains the essential elements for this type of application, namely :
 * navigation between categories and products
 * a registration and login process
