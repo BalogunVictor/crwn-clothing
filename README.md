@@ -14,6 +14,6 @@ Code technologies I got involved with while working on this project.
 * Redux & middleware : selectors and reselect, Redux logger, Redux persist, Redux saga (also seen Redux thunk)
 * CSS3 with a first implementation in Sass then in Styled Components
 * Firebase for authentication and shop data
-* Stripe as a payment gateway shi 
+* Stripe as a payment gateway  
 * GitHub for source code management
 It is Redux which is implemented in this version but I also explored Context API and GraphQL + Apollo as alternatives.
