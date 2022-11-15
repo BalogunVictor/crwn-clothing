@@ -1,3 +1,19 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
 .checkout-item {
   width: 100%;
   display: flex;
@@ -6,6 +22,10 @@
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
+
+  @include mobile {
+    font-size: 14px;
+  }
 
   .image-container {
     width: 23%;
@@ -36,8 +56,5 @@
   .remove-button {
     padding-left: 12px;
     cursor: pointer;
-  }
-  @media screen and (max-width: 400px) {
-    font-size: 10px;
   }
 }

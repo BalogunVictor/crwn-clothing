@@ -1,3 +1,19 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
 .header {
   height: 70px;
   width: 100%;
@@ -5,10 +21,22 @@
   justify-content: space-between;
   margin-bottom: 25px;
 
+  @include mobile {
+    width: 70%;
+
+  }
+
   .logo-container {
     height: 100%;
     width: 70px;
     padding: 25px;
+
+    @include mobile {
+      width: 60%;
+      padding: 2px;
+      height: 40px;
+
+    }
   }
 
   .options {
@@ -18,9 +46,20 @@
     align-items: center;
     justify-content: flex-end;
 
+    @include mobile {
+      width: 80%;
+      justify-content: center;
+    }
+
     .option {
       padding: 10px 15px;
       cursor: pointer;
+      @include mobile 
+      {
+        font-size: small;
+        padding: 10px 10px;
+        text-align: center;
+      }
     }
   }
 }

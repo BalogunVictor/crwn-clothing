@@ -1,3 +1,19 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
 .custom-button {
   min-width: 165px;
   width: auto;
@@ -16,6 +32,16 @@
   justify-content: center;
   cursor: pointer;
 
+  @include mobile {
+    width: 120px;
+    min-width: 100px;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    padding: 15px;
+
+  }
+
   &:hover {
     background-color: white;
     color: black;
@@ -26,6 +52,10 @@
     background: rgba(0,0,0,.5);
     color: #03e9f4;
     font-size: 16px;
+
+    @include mobile {
+      font-size: 12px;
+    }
 
     &:hover {
       background: #03e9f4;

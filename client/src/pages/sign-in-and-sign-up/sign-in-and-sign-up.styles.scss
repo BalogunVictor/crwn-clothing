@@ -1,6 +1,28 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
 .sign-in-and-sign-up{
   width: 1200px;
   display: flex;
   justify-content: space-between;
   margin: 30px auto;
+
+  @include mobile {
+    display: block;
+    align-items: center;
+    margin: 15px auto;
+  }
 }

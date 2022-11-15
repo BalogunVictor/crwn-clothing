@@ -1,10 +1,33 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+
 .homepage {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 80px;
 
-  @media screen and (max-width: 400px) {
+ 
+
+  @include mobile {
     display: block;
+    width: 50vh;
+    padding: 20px 40px;
+   
   }
+
 }
