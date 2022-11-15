@@ -37,4 +37,7 @@
     padding-left: 12px;
     cursor: pointer;
   }
+  @media screen and (max-width: 400px) {
+    font-size: 10px;
+  }
 }
