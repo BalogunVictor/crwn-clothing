@@ -8,6 +8,7 @@ const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
   return (
     <div
       className={`${size} menu-item`}
+      style={{height: `${({ size }) => (size ? '380px' : '240px')}`}}
       onClick={() => navigate(`/${linkUrl}`)}
     >
       <div
