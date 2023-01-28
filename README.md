@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/Balogun Victor/Royal-clothing">
-    <img src="https://getlogovector.com/readme-logo-vector-svg/" target="_blank"><img src="https://getlogovector.com/wp-content/uploads/2020/10/readme-logo-vector.png"  alt="Logo" width="80" height="80">
+    <img src="https://getlogovector.com/wp-content/uploads/2020/10/readme-logo-vector.png"  alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">An E-commerce application built on React.js</h3>
