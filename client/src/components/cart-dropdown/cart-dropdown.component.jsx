@@ -42,4 +42,3 @@ const mapStateToProps = createStructuredSelector ({
 });
 
 export default connect(mapStateToProps)(CartDropdown);
-// export default (CartDropdown)
