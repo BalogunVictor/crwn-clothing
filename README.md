@@ -2,7 +2,9 @@
 <p align="center">
   <a href="https://github.com/Balogun Victor/Royal-clothing">
     <img src="https://getlogovector.com/wp-content/uploads/2020/10/readme-logo-vector.png"  alt="Logo" width="200" height="200">
-  </a>
+    
+  </a>![royalClothing](https://user-images.githubusercontent.com/93051955/229335193-154f8c81-1253-42fd-a943-14917e9ebb6c.png)
+
 
   <h3 align="center">An E-commerce application built on React.js</h3>
 
